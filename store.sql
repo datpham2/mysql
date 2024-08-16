@@ -175,7 +175,53 @@ OR nuocsx = 'Thai Lan'
 AND gia BETWEEN 30000 AND 40000;
 
 SELECT * FROM sanpham
-WHERE nuocsx = 'Thai Lan'
+WHERE nuocsx = 'Thai Lan';
 
 -- 6. In ra các số hóa đơn, trị giá hóa đơn bán ra trong ngày 1/1/2007 và ngày 2/1/2007.
+SELECT * FROM hoadon
+WHERE nghd = '2007/01/01';
+
+SELECT * FROM hoadon
+WHERE nghd = '2007/01/02';
+
+SELECT * FROM hoadon
+WHERE nghd = '2007/01/01'
+OR nghd = '2007/01/02';
+
+-- 7. In ra các số hóa đơn, trị giá hóa đơn trong tháng 1/2007, sắp xếp theo ngày (tăng dần) và trị giá của
+-- hóa đơn (giảm dần).
+SELECT * FROM hoadon
+ORDER BY nghd ASC, trigia ASC;
+
+-- 8. In ra danh sách các khách hàng (MAKH, HOTEN) đã mua hàng trong ngày 1/1/2007.
+SELECT * FROM khachhang
+INNER JOIN hoadon ON hoadon.makh = khachhang.makh
+WHERE hoadon.nghd = '2007/01/01';
+
+-- 9. In ra số hóa đơn, trị giá các hóa đơn do nhân viên có tên “Nguyen Van B” lập trong ngày
+-- 28/10/2006.
+SELECT manv FROM nhanvien
+WHERE hoten = 'Nguyen Van B';
+
+SELECT * FROM hoadon
+WHERE manv = 'NV03'
+AND nghd = '2006/10/28';
+
+-- 10. In ra danh sách các sản phẩm (MASP,TENSP) được khách hàng có tên “Nguyen Van A” mua trong
+-- tháng 10/2006.
+SELECT * FROM sanpham;
+
+SELECT * FROM khachhang;
+
+SELECT * FROM khachhang
+WHERE hoten = 'NGUYEN VAN  A';
+
+SELECT * FROM cthd;
+
+SELECT * FROM sanpham;
+
+SELECT * FROM khachhang;
+
+SELECT makh FROM khachhang
+WHERE hoten = 'Nguyen Van  A';
 
