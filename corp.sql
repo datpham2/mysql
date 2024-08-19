@@ -92,3 +92,24 @@ VALUES ('Cáp quang', 20, 'TP HCM', 1);
 INSERT INTO dean (tenda, mada, ddiem_da, phong)
 VALUES ('Đào tạo', 30, 'Hà Nội', 4);
 
+INSERT INTO diadiem_phg (maphg, diadiem)
+VALUES(1, 'TP HCM');
+
+INSERT INTO diadiem_phg (maphg, diadiem)
+VALUES(4, 'Hà Nội');
+
+INSERT INTO diadiem_phg (maphg, diadiem)
+VALUES(5, 'TAU');
+
+INSERT INTO diadiem_phg (maphg, diadiem)
+VALUES(5, 'NHA TRANG');
+
+INSERT INTO diadiem_phg (maphg, diadiem)
+VALUES(5, 'TP HCM');
+
+SELECT * FROM diadiem_phg;
+
+SELECT * FROM nhanvien;
+
+SELECT * FROM nhanvien
+WHERE phg = 4;
